@@ -3,9 +3,6 @@ before_install:
 - unzip -qq apache-maven-3.3.9.zip
 - export M2_HOME=$PWD/apache-maven-3.3.9
 - export PATH=$M2_HOME/bin:$PATH
-jdk:
-- openjdk6
-- oraclejdk7
 language: java
 notifications:
   email: false
@@ -14,3 +11,8 @@ notifications:
     template:
     - Build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) of %{repository}@%{branch} by %{author} %{result} in %{duration}
     - 'dashbot: %{repository_name} %{build_id}'
+dist: trusty
+sudo: required
+jdk:
+  - openjdk7
+  - openjdk8
